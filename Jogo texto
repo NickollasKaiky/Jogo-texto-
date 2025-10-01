@@ -1,0 +1,907 @@
+programa
+{
+	inclua biblioteca Util --> u
+	inclua biblioteca Texto --> tx
+
+	inteiro velocidade = 1 //VELOCIDADE DO TEXTO
+	inteiro resposta 
+	inteiro turno = 0
+	
+	funcao inicio()
+	{
+		desenhar_titulo()
+		capitulo1()
+	}
+
+	funcao desenhar_titulo(){
+		escreva(" ▄██████▄          ▄█    █▄     ▄██████▄      ███        ▄████████  ▄█             ▄██████▄   ▄█    █▄     ▄████████    ▄████████  ▄█        ▄██████▄   ▄██████▄     ▄█   ▄█▄ \n")
+		escreva("███    ███        ███    ███   ███    ███ ▀█████████▄   ███    ███ ███            ███    ███ ███    ███   ███    ███   ███    ███ ███       ███    ███ ███    ███   ███ ▄███▀ \n")
+		escreva("███    ███        ███    ███   ███    ███    ▀███▀▀██   ███    █▀  ███            ███    ███ ███    ███   ███    █▀    ███    ███ ███       ███    ███ ███    ███   ███▐██▀   \n")
+		escreva("███    ███       ▄███▄▄▄▄███▄▄ ███    ███     ███   ▀  ▄███▄▄▄     ███            ███    ███ ███    ███  ▄███▄▄▄      ▄███▄▄▄▄██▀ ███       ███    ███ ███    ███  ▄█████▀    \n")
+		escreva("███    ███      ▀▀███▀▀▀▀███▀  ███    ███     ███     ▀▀███▀▀▀     ███            ███    ███ ███    ███ ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   ███       ███    ███ ███    ███ ▀▀█████▄    \n")
+		escreva("███    ███        ███    ███   ███    ███     ███       ███    █▄  ███            ███    ███ ███    ███   ███    █▄  ▀███████████ ███       ███    ███ ███    ███   ███▐██▄   \n")
+		escreva("███    ███        ███    ███   ███    ███     ███       ███    ███ ███▌    ▄      ███    ███ ███    ███   ███    ███   ███    ███ ███▌    ▄ ███    ███ ███    ███   ███ ▀███▄ \n")
+		escreva(" ▀██████▀         ███    █▀     ▀██████▀     ▄████▀     ██████████ █████▄▄██       ▀██████▀   ▀██████▀    ██████████   ███    ███ █████▄▄██  ▀██████▀   ▀██████▀    ███   ▀█▀ \n")
+		escreva("                                                                   ▀                                                   ███    ███ ▀                                 ▀          \n")
+
+	}
+	
+	funcao escreva_lento(cadeia texto){
+
+		caracter letra
+		
+		para(inteiro i=0; i < tx.numero_caracteres(texto); i++){
+
+		letra = tx.obter_caracter(texto, i)
+
+		escreva(letra)
+		u.aguarde(velocidade)
+
+		}
+	}
+	funcao leia_resposta(inteiro alternativas){
+		
+		faca{
+		
+			leia(resposta)
+		
+		}enquanto(resposta>alternativas ou resposta <= 0)
+		
+	}
+	funcao capitulo1(){
+
+		
+		escreva_lento("\nVocê é Jack Torrance, escritor e ex-professor. Acaba de chegar ao Hotel Overlook, nas \nmontanhas do Colorado, para uma entrevista de emprego como zelador de inverno.\nO gerente, Sr. Ullman, avisa:\n— \"O hotel ficará fechado e isolado pela neve por cinco meses. É um trabalho solitário. E... \npreciso ser sincero, o antigo zelador enlouqueceu e matou a família aqui.\"\n")
+		escreva_lento("\n[1] Mostrar preocupação e perguntar mais detalhes sobre a tragédia.\n")
+		escreva_lento("[2] Fingir que não se importa e garantir que está pronto para o trabalho.\n")
+		
+		leia_resposta(2)
+
+		limpa()
+
+		se ( resposta == 1 ){
+			escreva_lento("Você olha sério para Ullman e pergunta:\n— “O que exatamente aconteceu com o antigo zelador?”\nEle suspira e responde:\n— “O nome dele era Charles Grady. Durante o isolamento, ele enlouqueceu... atacou a esposa e as duas filhas com um machado,\n antes de tirar a própria vida. Foi terrível. Por isso preciso ter certeza de que você entende a pressão que o isolamento causa.”\nVocê sente um arrepio percorrer sua espinha, mas mantém a postura.\n")
+			escreva_lento("\n[1] “Entendo, senhor Ullman. Mas eu sou diferente. Esse trabalho é perfeito para mim.”\n")
+			escreva_lento("[2] “Com todo respeito, essa história me preocupa. Talvez eu não seja a pessoa certa.”\n")
+			leia_resposta(2)
+			se(resposta == 1){
+				limpa()
+				escreva_lento("Você encara Ullman com firmeza:\n— “Entendo, senhor. Mas eu sou diferente. Esse trabalho é perfeito para mim. Preciso de paz para escrever meu livro.”\n\nUllman sorri, aliviado:\n— “Ótimo. Então está decidido. O senhor Torrance será o zelador de inverno.”")
+				capitulo2(1)
+			}
+			senao{
+				limpa()
+				escreva_lento("— “Com todo respeito, essa história me preocupa. Talvez eu não seja a pessoa certa.” — você diz, hesitante.\nUllman assente, compreensivo:\n— “Entendo… É uma decisão séria. Mas se mudar de ideia, estaremos esperando.”\n\nMesmo assim, você continua pensando se realmente consegue lidar com o isolamento e o peso do\nhotel.\nVocê decide que vale a pena tentar\n\n")
+				capitulo2(1)
+			}
+
+	
+		}
+		senao{
+			escreva_lento("Você finge que não se importa e responde com confiança:\n— “Isso não é problema. Estou pronto para o trabalho, senhor Ullman.”\n\nO gerente observa seu tom firme, um pouco surpreso com a falta de hesitação, mas sorri:\n— “Ótimo. Então está decidido. O senhor Torrance será o zelador do inverno.”")
+				capitulo2(1)
+		}
+	}
+	funcao capitulo2(inteiro opcao){
+
+		se(opcao == 1){
+			escreva_lento("\n\nDias, depois você viaja até o Hotel Overlook com sua esposa, Wendy, e seu filho, Danny.\nO lugar é imenso com corredores intermináveis e uma atmosfera estranhamente silenciosa.\n\nO cozinheiro, Hallorann, percebe que Danny tem um dom especial, algo que ele chama de “O Iluminado”, \na habilidade de ver e sentir coisas que os outros não percebem.\n")
+			escreva_lento("\nÀ noite, sozinho nos corredores, você sente que o hotel...está vivo.\nAs paredes parecem sussurar, memórias se arrastam como ecos incisíveis\n")
+			escreva_lento("\n[1] Ignora e tenta se concentar na escrita do livro.\n")
+			escreva_lento("[2] Explora os corredores à noite para descobrir de onde vêm os susurros.\n")
+			
+			leia_resposta(2)
+
+		se ( resposta == 1){
+			limpa()
+			capitulo3(1)
+		}senao{
+			limpa()
+			capitulo3(2)
+			}
+		}
+	}
+	funcao capitulo3(inteiro opcao){
+		se(opcao == 1){	
+			escreva_lento("Você decide que não vai deixar levar por bobagens.\nSenta-se diante da máquina de escrever encara a página em branco e pensa: \n“Agora vai. O silêncio deste lugar é perfeito para trabalhar”")
+			escreva_lento("\nAs horas passam... mas as palavras não vêm.\nA cada tentaiva, sua mente se perde em ecos, imagens de neve e lembranças distorcidas.")
+			escreva_lento("\nWendy entra no salão:\n—“Jack... você não está escrevendo nada?”\n\nSua frustração aumenta. Uma voz, baixa e quase imperceptível, sussura:\n—“Ela não acredita em você... ninguém acredita... o hotel pode ser seu verdadeiro lar”\n")
+			escreva_lento("\n[1] Explode com Wendy acusando-a de não apoiar seus esforços.\n[2] Se controla e diz que só precisa de mais tempo para escrever\n")
+
+		leia_resposta(2)
+
+		se ( resposta == 1){
+			limpa()
+			capitulo4(1)
+		}
+		senao{
+			limpa()
+			capitulo4(4)
+		}
+		
+	}
+	senao se(opcao == 2){
+		escreva_lento("Você decide investigar os corredores à noite.\nA cada passo, o silêncio se mistura com sussurros quase inaudíveis. O carpete vermelho parece se estender infinitamente.\n\nDe repente, você vira uma esquina e vê duas meninas idênticas, de mãos dadas.\n— “Venha brincar com a gente, para sempre… e sempre… e sempre…”\n\nVocê pisca e elas desaparecem.\nO frio percorre sua espinha, mas no fundo, uma estranha sensação de pertencimento cresce dentro de você.\nO hotel parece sussurrar:\n— “Você é um de nós, Jack…”\n")
+			escreva_lento("\n[1] Se convence de que foi apenas imaginação e tenta voltar para o quarto.\n[2] Segue os corredores mais fundo, disposto a descobrir até onde o hotel quer levá-lo.\n")
+			leia_resposta(2)
+			se(resposta == 1){
+				escreva_lento("Você balança a cabeça, nervoso.\n— “Não… isso foi só imaginação. Preciso dormir. É só cansaço.”\n\nVolta para o quarto, mas o sono não vem.\nQuando finalmente apaga, sonha com salões cheios de gente, música e gargalhadas.\nUm garçom se aproxima e sussurra em seu ouvido:\n— “Estamos esperando por você, senhor Torrance.”\nAo acordar, seu coração dispara. Não sabe se está sonhando ou se o hotel realmente o chamou.\n")
+				escreva_lento("\nNo dia seguinte, você se senta diante da máquina de escrever.\nA página continua em branco. A frustração cresce.\nA voz do hotel, agora mais clara, sussurra:\n— “Ela não acredita em você… ela atrapalha… sempre atrapalhou.”\n")
+				escreva_lento("\n[1] Explode com Wendy, acusando-a de não apoiar seus esforços.\n[2] Se controla e diz que só precisa de mais tempo para escrever.\n")
+
+				leia_resposta(2)
+
+				se ( resposta == 1){
+				limpa()
+				capitulo4(1)
+			}
+			senao{
+				limpa()
+				capitulo4(4)
+			}
+			}
+
+			}
+			senao{
+				limpa()
+				escreva_lento("Você segue os corredores, hipnotizado.\nAs luzes piscam e a cada porta que passa, ecos de vozes antigas chegam aos seus ouvidos: risadas,\nmúsica de festa, brindes.\n\nAté que, de repente, você abre uma porta e encontra um grande salão iluminado.\nHá uma festa acontecendo — homens e mulheres elegantes, vestidos como se fosse a década de\n1920.\nNo bar, um barman sorri para você.\n\n— “Boa noite, senhor Torrance. O que vai beber?”\n\nVocê percebe que conhece aquele homem, embora nunca o tenha visto. O nome dele surge em sua\nmente: Lloyd.\n\nO copo de uísque aparece em sua frente, cheio até a borda.\nVocê não se lembra de pedir.\n")
+				escreva_lento("\n[1] Bebe o uísque, aceitando o presente do hotel.\n[2] Recusa e tenta fugir do salão imediatamente.\n")
+				leia_resposta(2)
+			se(resposta ==1){
+				limpa()
+				capitulo4(3)
+			}
+			senao{
+		
+				limpa()
+				capitulo4(2)	
+				}
+			}
+		}
+	
+	funcao capitulo4(inteiro opcao){
+		se(opcao == 1){
+			escreva_lento("Você levanta os olhos da máquina de esccrever e encara Wendy com raiva:\n—“Você nunca entende, Wendy! Eu preciso de silêncio, de paz, de confiança ! Se você ficasse no seu lugar, eu já terminado esse maldito livro!”\n\nWendy dá um passo para trás assustada:\n—“Jack... eu ssó queria ajudar...”\n\nA voz sombria em sua cabeça cresce, alimentando sua fúria:\n—“Veja ela duvida de você... ela atrapalha... sempre atrapalhou”.\n\nSeu coração dispara\nVocê sente que não é mais apenas você dentro da sua própria mente.")
+			escreva_lento("\n\n[1] Continua gritando e ameaça Wendy, deixando a escuridão tomar conta.\n[2] Respira fundo, tenta se recompor e pede desculpas, mesmo relutante.\n")
+	
+			leia_resposta(2)
+	
+			se(resposta == 1){
+				limpa()
+				capitulo5(1)
+			}
+			senao{
+				limpa()
+				escreva_lento("Jack fecha os olhos e respira fundo. Por um instante, a raiva parece querer explodir, mas ele a segura.\nA voz sombria lateja em sua mente, impaciente:\n— “Covarde… você vai se ajoelhar diante dela?!”\nMas, contra todas as expectativas, Jack baixa o tom.\n— “Desculpe, Wendy… eu… não deveria ter gritado.”\n\nWendy olha surpresa, quase sem acreditar.\n— “Jack… isso significa muito. Eu sei que você está lutando… e eu estou aqui.”\n\nUm silêncio pesado paira. A sombra em sua mente não desaparece, mas parece recuar, como uma\nfera contrariada que volta para a escuridão.\n\nJack sente uma pequena vitória dentro de si. Ainda existe escolha. Ainda existe controle.\n")
+				escreva_lento("\n[1] Jack tenta se abrir com Wendy, falando do que sente — mesmo sabendo que a escuridão não vai gostar.\n[2] Jack guarda tudo para si e volta a escrever, fingindo que está tudo bem.\n")
+				leia_resposta(2)
+
+				se(resposta == 1){
+				limpa()
+				capitulo5(5)
+				
+				}
+				senao{
+				
+				
+				}
+			}
+		}
+		//----- SE NÂO BEBER ------
+		senao se(opcao == 2){
+			escreva_lento("Você olha para o copo brilhando no balcão, mas sente um peso estranho no ar.\nCom um esforço, recua um passo.\n— “Não… eu não pedi isso. Não vou beber.”\n\nO sorriso do barman Lloyd desaparece, como se fosse feito de vidro quebrando.\nNum piscar de olhos, o salão inteiro se desfaz — as risadas, a música, as pessoas.\nVocê está de volta ao corredor vazio, com apenas o eco distante da sua própria respiração.\n\nO hotel parece irritado. As vozes se tornam mais agressivas:\n— “Você não pode nos negar para sempre, Jack… cedo ou tarde será nosso.”\n")
+			escreva_lento("\nNa manhã seguinte, Wendy percebe que você está perturbado.\n— “Jack, você não dormiu? Está com uma cara horrível…”\n\nVocê sente o peso do segredo do salão, e por um instante, quase conta a ela o que viu.\n")
+			escreva_lento("\n[1] Conta para Wendy o que aconteceu, mesmo sabendo que ela pode achar que enlouqueceu.\n[2] Guarda tudo para si, decidido a enfrentar o hotel sozinho.\n")
+			leia_resposta(2)
+			se(resposta == 1){
+				/*
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 * TERMINAR !!!!!!!!!!!
+				 * 
+				 * 
+				 * 
+				 * 
+				 */
+				
+			}
+			senao se(opcao == 3){
+				limpa()
+				capitulo5(2)
+			}
+			senao{
+				escreva_lento("Você respira fundo, a raiva queimando dentro do peito, mas se contém.\nOlha para Wendy com um meio sorriso forçado:\n— “Eu só preciso de mais tempo, Wendy. Só isso. O livro vai sair, confie em mim.”\n\nEla suspira, aliviada, e toca seu ombro com carinho:\n— “Eu sei, Jack. Só não se pressione tanto…”\nVocê finge tranquilidade, mas por dentro a frustração se mistura às vozes do hotel, que agora soam\nmais irritadas:\n— “Fraco… você deveria mostrar quem manda…”\n\nNaquela noite, sozinho no salão vazio, você escuta passos atrás de si.\nUma garrafa aparece sobre o balcão. O bar está repleto de bebidas, embora Wendy tenha certeza de\nque está vazio.\n\nO garçom sorri educadamente:\n— “Boa noite, senhor Torrance. A primeira é por conta da casa.”\n")
+				escreva_lento("\n[1] Aceita a bebida e conversa com o garçom.\n[2] Recusa, tentando se manter sóbrio e focado no livro.\n")
+				leia_resposta(2)
+
+				se(resposta == 1){
+					limpa()
+					capitulo5(4)
+				}
+				senao{
+				/*
+				 * 
+				 * 
+				 * 
+				 * 
+				 * TERMINAR !!!!!!!!!
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 */
+				}
+			}
+		}
+		//----- SE BEBER ------
+		senao{
+			escreva_lento("Você pega o copo e o gira entre os dedos.\nO aroma forte do uísque sobe até o nariz, e por um instante, você sente uma calma familiar.\nQuando o líquido queima sua garganta, a sensação de pertencimento aumenta.\n\nLloyd sorri, servindo mais.\n— “O hotel sempre cuida dos seus, senhor Torrance. Aqui, você nunca estará sozinho.”\n\nAtrás de você, os convidados continuam dançando, mas seus rostos… parecem mortos.\nOlhos sem vida, bocas congeladas em sorrisos eternos.\nO sussurro do Overlook ecoa de novo:\n— “Ela e o garoto querem te tirar daqui, Jack. Mas este é o seu lugar. Você precisa defendê-lo.”")
+			escreva_lento("\n[1] Aceita totalmente a voz do hotel, decidido a proteger o Overlook contra Wendy e Danny.\n[2] Joga o copo no chão, tentando resistir à influência, mesmo que seja tarde.\n")
+			leia_resposta(2)
+			se(resposta == 1){
+			limpa()
+			capitulo5(3)	
+			}
+			senao{
+				/*
+				 * 
+				 * 
+				 * 
+				 * 
+				 * TERMINAR !!!!!!!!!!
+				 * 
+				 * 
+				 * 
+				 * 
+				 */
+				
+			}
+		}
+	}
+	funcao capitulo5(inteiro opcao){
+		se(opcao == 1){
+			escreva_lento("Você avança contra Wendy, os olhos queimando de raiva.\n—“Você nunca me respeitou, Wendy\nSempre me olhou como um fracassado!\nMas agora... agora eu vou mostrar quem manda aqui!”\n\nWendy, em choque, pega uma faca da cozinha para se defender:\n—“Jack... não faça isso ! Por favor!”\n\nA voz do Hotel Overlook explode dentro da sua mente como um trovão:\n—“Ela é o obstáculo, Jack derrube-a.\nEntão será livre.”")
+			escreva_lento("De repente, a atmosfera muda. As luzes piscam. Você percebe que não é só contra Wendy que está lutando...\nO próprio hotel começa a agir através de você, testando sua lealdade.\n\n")
+			batalha(100,8,17,"Wendy",80, 8, 18)
+		}
+		senao se(opcao == 2){
+			escreva_lento("Você encara Wendy, mas força um sorriso falso.\n— “Só não dormi bem. Deve ser o ar daqui.”\n\nEla não parece convencida, mas decide não insistir.\n\nPor dentro, você sente a pressão aumentar. As vozes do hotel riem, zombando da sua tentativa de\nresistir:\n— “Você pode fingir com ela, Jack… mas nunca de nós. Estamos dentro da sua mente.”\n\nA cada noite, os corredores chamam mais forte.\nE durante o dia, diante da máquina de escrever, você percebe algo estranho:\na página em branco começa a se preencher sozinha, repetindo apenas uma frase:\n\n“Todo trabalho e nenhuma diversão fazem de Jack um garoto chato.”\nPáginas e páginas.\nVocê não se lembra de escrever nada disso.\n")
+			escreva_lento("\n[1] Continua escrevendo compulsivamente, deixando a frase se repetir sem parar.\n[2] Rasga as folhas, tentando provar para si mesmo que ainda está no controle.")
+			leia_resposta(2)
+			se(resposta == 1){
+				/*
+				 * 
+				 * 
+				 * FALTA ESSA PARTE LEMBRAR
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 */
+			}
+			senao{
+				limpa()
+				capitulo6(2)
+			}
+				
+		}
+		senao se (opcao == 3){
+			escreva_lento("Jack ergue o copo vazio, em um\nbrinde silencioso.\n\nLoyd sorri satisfeito e desaparece, como se nunca tivesse estado ali.\nNo salão, os convidados o aplaudem, e o som ecoa em sua mente como uma ordem.\nJack se levanta.\nO machado encostado na parede parece brilhar\nsob a luz fantasmagórica.\nEle o segura com firmeza, o coração acelerado — não de medo, mas de dever.\n\nO Overloo sussura:\n—“Agora você é parte de nós. Proteja a casa.\nPara sempre.”\n\nNo andar de cima, ele ouve passos leves.\nDanny correndo.\nE a voz trêmula de Wendy chamando por ele.\n\nJack sorri.\nNão como marido.\nNão como pai.\nMas como guardião do hotel\n")
+			escreva_lento("\n[1] Jack vai atrás de Danny primeiro.\n[2] Jack vai atrás de Wendy primeiro\n")
+		leia_resposta(2)
+		se(resposta == 1){
+			/*
+			 * 
+			 * 
+			 * 
+			 * 
+			 * 
+			 * TERMINAR
+			 * 
+			 * 
+			 * 
+			 * 
+			 * 
+			 * 
+			 */
+			
+		}
+		senao{
+			limpa()
+			capitulo6(3)
+			}
+		}
+		senao se( opcao == 4){
+			escreva_lento("Você encara a bebida cintilando sob a luz fraca.\nPor um instante, pensa em resistir… mas a sede e a raiva falam mais alto.\n\n— “Por que não? Eu mereço um drink.”\n\nO garçom serve, e você sente o álcool queimando na garganta.\nDe repente, o peso do fracasso parece desaparecer.\nA cada gole, o bar se enche de vozes, risos e música. O salão vazio agora está repleto de gente\nelegante, dançando e brindando.\n\nO garçom se aproxima outra vez:\n— “O hotel gosta de você, senhor Torrance. Mas… há aqueles que o impedem de ser tudo o que pode ser.\nSua esposa… seu filho… eles não entendem o seu valor.”\n\nAs vozes ecoam em sua mente:\n— “Livre-se deles, Jack. Só então você será parte de nós.”\n")
+			escreva_lento("\n[1] Concorda com as vozes e decide que Wendy e Danny são um obstáculo.\n[2] Balança a cabeça, confuso, tentando negar a influência.\n")
+			leia_resposta(2)
+
+			se (resposta == 1){
+				limpa()
+				capitulo6(4)
+			}
+			senao{
+				/*
+				 * 
+				 * 
+				 * 
+				 * 
+				 * LEMBRA DE FAZER !!!!!!!!!!!!!!!!!!!!!!
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 */
+			}		
+		}
+		senao{
+				escreva_lento("Jack encara Wendy, sua garganta seca. A sombra em sua mente grita para que ele se cale, mas ele\nforça as palavras:\n\n— “Wendy… eu não sou o mesmo. Há uma voz aqui dentro, me pressionando… me dizendo o que fazer. Eu\nsinto que estou… perdendo o controle.”\n\nWendy se aproxima lentamente, como se estivesse diante de um animal ferido.\n— “Jack… você não está sozinho. Essa coisa que você sente, seja lá o que for… não é mais forte do que você.\nEu conheço o homem que você é.”\n\nAs lágrimas quase vêm, mas Jack segura. A sombra sibila dentro dele:\n— “Ela mente… ela tem medo de você. Todos têm.”\n\nJack sente que está numa encruzilhada: abrir-se ainda mais pode fortalecer o elo com Wendy… ou dar\nà escuridão mais espaço para atacar.\n")
+				escreva_lento("\n[1] Ele se entrega completamente e conta tudo, até os pensamentos mais violentos.\n[2] Ele interrompe, muda de assunto e tenta afastar Wendy para protegê-la.\n")
+				leia_resposta(2)
+				se( resposta == 1){
+				limpa()
+				capitulo6(5)
+				
+				
+				}
+				senao{
+				limpa()
+				capitulo6(6)
+				
+				}
+				}
+		}
+	
+	funcao capitulo6(inteiro opcao){
+		se(opcao == 1){
+			/*
+			 * 
+			 * 
+			 * 
+			 * 
+			 * LEMBRA DE FAZER !!!!!!!!!!!!!!!!!!!
+			 * 
+			 * 
+			 * 
+			 * 
+			 * 
+			 */
+		}
+		senao se (opcao == 2){
+			escreva_lento("Você arranca as folhas da máquina de escrever e as rasga em pedaços, o som ecoando pelo salão\nvazio.— “Eu não sou deles. Eu não vou ser deles.” — você sussurra, mas a sua própria voz treme.\n")
+			escreva_lento("\nOs pedaços de papel caem no chão como neve suja.\nPor um instante, há silêncio absoluto.\n\nEntão… o hotel reage.\nAs lâmpadas piscam, as paredes rangem, e uma gargalhada profunda percorre os corredores, vinda\nde todos os lados ao mesmo tempo.\n\nUma voz sussurra ao seu ouvido, quase maternal:\n— “Não adianta, Jack. Você pode rasgar o papel, mas não pode rasgar a si mesmo.”\n\nVocê fecha os olhos, tentando se manter firme.\nMas quando os abre… a máquina de escrever está novamente cheia de páginas.\nE todas elas repetem a mesma frase.\n")
+			escreva_lento("\n[1] Grita com o vazio, enfrentando diretamente as vozes.\n[2] Pega as páginas e corre para mostrar a Wendy, pedindo ajuda.\n")
+			leia_resposta(2)
+
+			se(resposta == 1){
+				/*
+				 * 
+				 * 
+				 * 
+				 * 
+				 * TERMINAR !!!!!!!!!!!!!!!!!!!!!!!!!!
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 */
+			}
+			senao{
+				limpa()
+				capitulo7(2)
+			}
+		}
+		senao se(opcao == 3){
+			escreva_lento("Jack sobe lentamente as escadas, o machado\npessado em suas mãos.\nCada degrau range como se o hotel vibrasse junto ao seu passo.\nNo corredor Wendy aparece — os olhos\narregalados, segurando apenas uma faca de\ncozinha.\nEla ofega, tentando manter a coragem, mas Jack\npercebe o medo escorrendo em cada gesto.\n\n— Jack...por favor...somos nós, sua família... — a voz dela falha.\n\nJack sorri. O Overlook sopra em sua mente:\n\n— Ela é a intrusa. Livre-se dela.\n\nEle ergue o machado. Wendy recua até a parede\ndessesperada,mas não há para onde correr.\n")
+			escreva_lento("\n[1] Atacar Wendy\n[2] Tentar convencer Wendy a \"ficar do seu lado\" e do hotel\n")
+			leia_resposta(2)
+			se(resposta == 1){
+				limpa()
+				batalha(100,8,17,"Wendy",80, 8, 18)
+			}
+			senao{
+				limpa()
+				escreva_lento("Jack abaixa ligeramente o machado, tentando\ndominar a raiva com a voz do hotel ainda\nsussurando em sua mente:\n— “Wendy... veja... o hotel nos dá poder... paz.. pertença... você não entende, mas pode fazer parte disso também.”\n\nWendy treme, mas mantém os olhos fixos nos\nseus.\n— “Nunca... jamais vou me juntar a você! Danny e eu vamos embora!”\n\nO Overlook ruge, insatisfeito, enviando uma onda\nde frio pelo corredor.\nJack sente sua sanidade vacilar — metade dele\nquer aceitar a influência total, metade ainda sente algo humano tentando resistir.\n\nO destino se aproxima.\nComo Wendy ressistiu, a batalha final é inevitável.\n")
+				batalha(100,8,17,"Wendy",80, 8, 18)
+			}
+		}
+		senao se(opcao == 4){
+			escreva_lento("Você apoia o copo no balcão e encara o garçom, já sentindo a mente pesada de vozes:\n— “Você tem razão. Eles não me entendem. Sempre me olharam como um fracassado… mas o hotel me\naceita. O hotel acredita em mim.”\n\nO salão inteiro aplaude, embora Wendy e Danny nunca escutem essas palmas.\nPara eles, você está apenas parado, encarando o vazio com olhos distantes.\n\nMais tarde, Wendy entra no salão e pergunta:\n— “Jack… com quem você estava falando?”\n\nVocê sorri, a raiva latejando:\n— “Com meus verdadeiros amigos.”\n\nAs vozes rugem em uníssono:\n— “Chegou a hora, Jack. Prove sua lealdade.”\n")
+			escreva_lento("\nWendy percebe que há algo terrivelmente errado.\nVocê se aproxima dela com passos lentos, cada um ecoando pelo salão vazio. Danny está escondido\natrás da mãe, agarrado ao casaco dela, seus olhos arregalados.\n\n— “Jack, por favor… você está assustando a gente…” — ela diz, recuando.\n\nMas as vozes já tomaram conta:\n— “Ela nunca acreditou em você. Nem ele. Livre-se deles. O hotel será sua verdadeira família.”\n\nSua mão escorrega pelo cabo do machado apoiado contra a parede. O peso frio da lâmina parece\npulsar junto ao seu coração.\n\nWendy chora:\n— “Você não é esse monstro… você é o homem que eu amo!”\n\nO salão inteiro se silencia. Até as vozes aguardam sua escolha.\n")
+			escreva_lento("\n[1] Atacar Wendy\n[2] Atacar Danny\n")
+			leia_resposta(2)
+
+			se(resposta == 1){
+				limpa()
+				escreva_lento("Batalha iniciada: Jack X Wendy")
+				escreva("\n")
+				batalha(100,8,17,"Wendy",80, 8, 18)
+				
+			}
+			senao{
+				limpa()
+				capitulo7(3)
+				}
+			}
+			senao se(opcao == 5){
+				escreva_lento("Jack respira fundo, a voz tremendo:\n— “Wendy… às vezes eu penso em… machucar vocês. Não porque eu queira, mas porque essa coisa aqui\ndentro fica me mostrando imagens, me dando ordens. Eu não sei até quando consigo resistir.”\n\nWendy empalidece. Seus olhos marejam, mas ela não recua.\n— “Jack… obrigada por confiar em mim. Isso é o hotel, não é você. Nós vamos encontrar uma saída. Eu\nprometo.”\n\nPor um instante, a escuridão lateja de fúria dentro de Jack. A sombra grita:\n— “TRAIDOR! Você deveria ter ficado calado!”\n\nJack sente uma pressão esmagadora em sua mente, como se o próprio hotel tivesse ouvido cada\npalavra. O corredor gela, as lâmpadas piscam. Wendy segura sua mão com força, tentando mantê-lo\npresente.\n")
+				escreva_lento("[1] Se apega à mão de Wendy e luta contra a voz até o fim.\n[2] Solta a mão dela, permitindo que a escuridão o envolva completamente.\n")
+				leia_resposta(2)
+
+				se(resposta == 1){
+					limpa()
+					capitulo7(4)
+				}
+				senao{
+					limpa()
+					escreva_lento("Jack encara a mão de Wendy… e solta.\nO calor humano desaparece, substituído por um frio cortante.\nSeus olhos perdem o brilho, ficando ocos, cheios da sombra do Overlook.\n\nA voz em sua mente não sussurra mais — ela comanda.\n— “Agora você é nosso. Acabe com eles.”\n\nWendy recua, apavorada.\n— “Jack… por favor, não faça isso!”\n\nMas já não há “Jack”. Apenas o hotel usando sua pele.\nEle pega o machado encostado na parede e avança, cada passo ecoando como um trovão.\n\nDanny grita, puxando Wendy para a escada. Eles tentam fugir, mas o hotel conspira: portas se\ntrancam sozinhas, corredores mudam de lugar, janelas se fecham com força.\n\nO homem que um dia foi Jack os caça pelo Overlook, rindo como as vozes do salão vazio.\n\nNa neve, não há saída.\nWendy e Danny desaparecem no labirinto do hotel, suas vozes abafadas pela ventania e pelos gritos\ndo monstro que os persegue.\nO Overlook permanece em silêncio… satisfeito.\nE Jack… Jack está perdido para sempre.\n")
+					reiniciar()
+				}
+			}
+			senao{
+				escreva_lento("Jack recua um passo, erguendo a mão como se erguendo uma barreira invisível.\n— “Não… não quero falar mais sobre isso. Só… me deixe em paz.”\nWendy, surpresa, sente um frio percorrer sua espinha.\n— “Jack… você está me assustando. Eu só quero te ajudar.”\nEle desvia o olhar, apertando os punhos.\n— “Talvez seja melhor você… ficar longe de mim.\nSó por agora.”\nWendy morde os lábios, lágrimas surgindo em seus olhos.\nEla não insiste — apenas se afasta, mas\ncom o coração pesado.\nEnquanto isso, Jack sente a sombra crescendo em seu peito.\nO isolamento a alimenta.\n\nA voz sussurra, quase satisfeita:\n\n— “Muito bem, Jack. Agora você está sozinho comigo.”\n\n")
+				capitulo7(5)
+				
+			}
+
+			
+		}
+	funcao capitulo7(inteiro opcao){
+		se(opcao == 1){
+			
+		}
+		senao{
+			escreva_lento("Jack agarra o monte de páginas idênticas, as mãos tremendo. O papel parece mais pesado do que\ndeveria, como se cada folha carregasse um pedaço da sua sanidade.\n\nEle sobe as escadas apressado, tropeçando, até encontrar Wendy no quarto.\n— “Olha isso! Olha o que está acontecendo comigo!” — diz, jogando os papéis no chão.\n")
+			escreva_lento("\nWendy se abaixa, pega uma das folhas e lê em voz alta:\n— “Todo trabalho e nenhuma diversão fazem de Jack um garoto chato…” — sua voz falha. Ela pega outra, depois outra. Todas\niguais.\n\nSeus olhos se arregalam de horror.\n— “Jack… você precisa descansar. Precisa de ajuda…”")
+			escreva_lento("\nVocê sente o coração acelerar. Parte de você quer acreditar nela. Outra parte quer gritar que ela não\nentende.\n\nE nesse exato momento, você percebe: Danny está parado no canto do quarto, olhando para você em\nsilêncio. Seus olhos brilham com algo que você não entende — medo, talvez… ou julgamento.\nO hotel parece observar junto com eles, esperando a sua decisão.\n")
+			escreva_lento("\n[1] Implora para Wendy acreditar que o Overlook está vivo e tentando controlá-lo.\n[2] Acusa Wendy e Danny de conspirarem contra ele.\n")
+			leia_resposta(2)
+			se(resposta == 1){
+				limpa()
+				escreva_lento("Jack cai de joelhos diante de Wendy, agarrando seus braços.\n— “Você não entende, Wendy! Não sou eu! O hotel está vivo! Ele está me usando, me\ncolocando contra vocês!”\n\nSua voz ecoa pelo quarto, quebrada, desesperada.\nWendy chora, mas tenta se manter firme.\n— “Jack, escuta o que está dizendo! Você está cansado, estressado… não existe\nhotel vivo! É só sua cabeça!”\n\nVocê sente a raiva borbulhar, mas também a dor de não ser acreditado.\nDanny dá um passo à frente, a voz baixa e calma:\n— “Papai… eu também sinto. Tem algo aqui. Mas você precisa lutar. Se deixar, ele\nvence.”")
+
+				
+			}
+			senao se(opcao == 2){
+				limpa()
+				capitulo8(2)
+			}
+			senao se (opcao == 3){
+				escreva_lento("Você ergue o machado com um único pensamento frio: acabar com o que restou do obstáculo.\nDanny grita — um som agudo que corta o salão. Wendy se joga na frente do filho, implorando, mas\nvocê passa por ela como uma sombra. O machado desce.\n\nO sangue mancha a neve trazida no casaco de Danny; ele cai, gemendo. Wendy urra de dor e horror,\nmas a voz do hotel, triunfante, sussurra:\n— “Muito bem, Jack… você provou ser nosso. Agora, o garoto.”\n\nDanny, com lágrimas nos olhos e o brilho tremendo, encontra forças e se arrasta para longe,\nrastejando pelo chão enquanto você se aproxima. A vontade do Overlook guia seus passos; não há\ncansaço, só propósito frio.\n\nDanny consegue se libertar e corre pelos corredores. Wendy, desesperada, tenta segurá-lo, mas é\n")
+				escreva_lento("empurrada para trás por sua própria fraqueza. Você não sente remorso — só a presença do hotel\npreenchendo cada pensamento.\n")
+				escreva_lento("\nDanny foge pelos corredores, mas você já não sente cansaço. O hotel guia seus passos, mostrando\ncada curva do labirinto, cada pegada na neve.\nO “iluminado” do garoto brilha, mas você está acima da humanidade agora: é parte do Overlook.\n\nNo fim, não importa se Danny corre, grita ou resiste. O hotel sempre vence.\nE você… é o hotel.\n")
+				final_sombrio()
+				
+			}
+			senao se (opcao == 4){
+				escreva_lento("Jack aperta a mão de Wendy como se fosse sua âncora. Ele respira fundo, encara o corredor escuro e\nmurmura:\n— “Não… você não vai me vencer.”\n\nA sombra se debate dentro de sua mente, gritando, cuspindo ódio:\n— “Você é fraco! Ela vai te abandonar! Você nasceu para falhar!”\n\nMas Wendy aproxima a testa da dele e sussurra:\n— “Você não é fraco. Você é meu marido. Você é o pai do Danny. E você ainda pode lutar.”\n\nO hotel treme. As paredes ecoam com vozes de hóspedes mortos, rangidos de móveis, e a risada\nfantasmagórica enche o ar. Jack sente a dor física, como se a escuridão quisesse rasgar seu corpo por\ndentro.\n\nEle se vê diante de sua decisão final:\n\n")
+				escreva_lento("[1] Jack resiste e enfrenta a escuridão, mesmo que isso custe sua vida.\n[2] Jack cede e se torna totalmente a criatura do hotel.\n")
+				leia_resposta(2)
+
+				se(resposta == 1){
+					limpa()
+					escreva_lento("Batalha iniciada: Jack X O Hotel\n\n")
+					batalha(100,8,15,"O Hotel",110,7,17)
+				
+				}
+				senao{
+					limpa()
+					escreva_lento("Jack encara a mão de Wendy… e solta.\nO calor humano desaparece, substituído por um frio cortante.\nSeus olhos perdem o brilho, ficando ocos, cheios da sombra do Overlook.\n\nA voz em sua mente não sussurra mais — ela comanda.\n— “Agora você é nosso. Acabe com eles.”\n\nWendy recua, apavorada.\n— “Jack… por favor, não faça isso!”\n\nMas já não há “Jack”. Apenas o hotel usando sua pele.\nEle pega o machado encostado na parede e avança, cada passo ecoando como um trovão.\n\nDanny grita, puxando Wendy para a escada. Eles tentam fugir, mas o hotel conspira: portas se\ntrancam sozinhas, corredores mudam de lugar, janelas se fecham com força.\n\nO homem que um dia foi Jack os caça pelo Overlook, rindo como as vozes do salão vazio.\n\nNa neve, não há saída.\nWendy e Danny desaparecem no labirinto do hotel, suas vozes abafadas pela ventania e pelos gritos\ndo monstro que os persegue.\nO Overlook permanece em silêncio… satisfeito.\nE Jack… Jack está perdido para sempre.\n")
+					reiniciar()
+				}
+			}
+			senao{
+				escreva_lento("Jack anda sozinho pelos corredores do Overlook. O eco dos passos mistura-se ao sussurro das paredes.\n\nA voz dentro dele fica mais forte:\n\n— “Eles não confiam em você. Acabe logo com isso e o hotel será seu para sempre.”\n\nJack sente o machado pesado em sua mão. O coração bate forte. Wendy e Danny estão próximos, esperando que ele volte à razão.\n")
+				escreva_lento("\n[1] Jack resiste à voz, luta contra a escuridão e tenta salvar sua família.\n[2] Jack se entrega totalmente ao hotel e à escuridão.\n")
+				leia_resposta(2)
+				se( resposta == 1){
+					batalha(100,8,15,"O Hotel",110,7,17)
+				}
+				senao{
+					final_sombrio()
+				}
+			}
+			
+		}
+		
+	}
+	funcao capitulo8(inteiro opcao){
+		se(opcao == 1){
+			/*
+			 * 
+			 * 
+			 * 
+			 * 
+			 * 
+			 * TERMINAR !!!!!!!!!!!!!!!!!!!
+			 * 
+			 * 
+			 * 
+			 * 
+			 * 
+			 * 
+			 */
+			
+		}
+		senao{
+			escreva_lento("Jack aperta os punhos, o rosto ficando vermelho.\n— “Vocês… vocês sabiam o tempo todo, não sabiam?!” — ele aponta para Wendy e depois para Danny. —\n“O hotel me contou! Vocês estão contra mim!”\n\nWendy recua, segurando Danny pelos ombros.\n— “Jack, não fala isso… nós só queremos te ajudar…”\n\nMas as palavras dela soam falsas em seus ouvidos.Você vê o olhar de Danny — aquele olhar silencioso e profundo — e, de repente, tem certeza: ele sabe\nmais do que deveria.\n")	
+			escreva_lento("Talvez o garoto sempre tenha estado em contato com o Overlook. Talvez seja ele o responsável por\ntudo.\n\nUma risada distante ecoa pelos corredores, reforçando sua paranoia.\nA raiva ferve dentro de você, e a presença do hotel pulsa em seu peito como um coração estranho.\n\nAgora, não há mais confiança.\nA família diante de você não parece mais sua família.\nEles parecem… inimigos.\n")
+			escreva_lento("\n[1] Avança contra Wendy, decidido a acabar com a “traição”.\n[2] Se aproxima de Danny, tentando arrancar dele a verdade à força.\n")
+			leia_resposta(2)
+			se(resposta == 1){
+				limpa()
+				batalha(100,8,17,"Wendy",80, 8, 18)
+				
+			}
+			senao{
+				limpa()
+				capitulo9(2)
+			}
+			
+		}
+	}
+	funcao capitulo9(inteiro opcao){
+		se(opcao == 1){
+			
+		}
+		senao{
+			escreva_lento("Jack respira fundo, seus olhos fixos no garoto.\nEle se agacha lentamente, ficando na altura de Danny.\n— “Você… sempre soube, não é? O hotel fala com você também. É você quem está fazendo isso comigo!”\n")
+			escreva_lento("\nDanny não se move, apenas o encara. Seus olhos brilham com uma estranha intensidade — um poder\nsilencioso.\nPor um instante, Jack sente como se fosse ele o observado, despido por dentro.\n\nWendy tenta intervir, mas você levanta a mão e a afasta com um gesto brusco.\n— “Fica fora disso, Wendy. Esse garoto precisa falar agora!”\n")
+			escreva_lento("\nDanny, finalmente, abre a boca.\nSua voz é baixa, mas clara:\n— “O hotel não fala comigo, pai… ele fala através de você.”\n\nEssas palavras atingem como uma lâmina no peito.\nA raiva explode dentro de você, misturada ao medo.\nO hotel parece vibrar em aprovação, como se estivesse apenas esperando esse momento.\n")
+			escreva_lento("[1] Tenta agarrar Danny à força, para calá-lo.\n[2] Ri de nervoso e assume de vez que o Overlook é parte dele.\n")
+			leia_resposta(2)
+			se(resposta == 1){
+				limpa()
+				capitulo10(1)
+				
+			}
+			senao{
+				limpa()
+				capitulo10(2)
+			}
+		}
+	}
+	funcao capitulo10(inteiro opcao){
+		se(opcao == 1){
+			limpa()
+			escreva_lento("Jack aperta Danny com toda a força, sentindo o corpo frágil do garoto tremer em\nseus braços.\n— “Você é meu, Danny! O hotel é meu! VOCÊ não vai me controlar!”\n\nO brilho explode novamente, uma onda psíquica que deveria derrubá-lo… mas\ndessa vez, algo muda.\nVocê sente o Overlook absorvendo aquela energia, como se cada grito silencioso\nde Danny fosse combustível para a sua fúria.\nWendy avança com um grito desesperado\n\n")
+			batalha(100,8,17,"Wendy",80, 8, 18)
+		}
+		senao{
+			escreva_lento("Jack começa a rir, primeiro baixo, depois cada vez mais alto. A risada ecoa pelo quarto, misturando-se\naos estalos das paredes e ao vento uivando lá fora.\n\n— “Claro… é isso mesmo, não é?!” — você grita, batendo no peito. — “O hotel não está contra mim… ele é\nparte de mim! Sempre foi! Eu sou o Overlook!”\n\nDanny recua para perto de Wendy, mas você quase não os vê mais como pessoas. Eles parecem\nsombras distantes, insignificantes.\nO hotel pulsa dentro de você, oferecendo força, poder, clareza.\n")
+			escreva_lento("\nAs vozes antes confusas agora soam em uníssono, como um coro macabro:\n— “Nosso guardião… nosso instrumento…”\n\nJack abre os braços, como se abraçasse as paredes vivas ao redor.\nO chão vibra. As luzes piscam. O Overlook parece respirar com você.\n\nE naquele instante, não há mais dúvida:\nVocê não é apenas hóspede.\nVocê é o verdadeiro dono deste lugar.\n")
+			escreva_lento("\n[1] Proclama diante de Wendy e Danny que eles devem se curvar ao novo guardião do hotel.\n[2] Expulsa-os, deixando-os à própria sorte na nevasca, para que o Overlook seja só seu.")
+			leia_resposta(2)
+
+			se(resposta == 1){
+				limpa()
+				capitulo11(3)
+				
+			}
+			senao{
+				limpa()
+				capitulo11(2)
+			}
+		
+		}
+	}
+	funcao capitulo11(inteiro opcao){
+		se(opcao == 1){
+			
+			
+		}
+		senao se( opcao == 2){
+			escreva_lento("Jack encara Wendy e Danny com um sorriso distorcido, os olhos brilhando com a mesma fúria que\npulsa nas paredes do hotel.\nEle abre a porta do quarto e aponta para o corredor escuro.\n\n— “Saiam. O Overlook não precisa mais de vocês. Ele é meu. Só meu.”\n\nWendy, em choque, segura Danny pela mão.\n— “Jack… por favor… você não sabe o que está fazendo…”\n\nMas a nevasca lá fora uiva como um monstro faminto, e você sente prazer em imaginar os dois sendo\nengolidos pelo frio.\nEles hesitam, mas a sua postura — imponente, dominada pela força do hotel — não deixa escolha.\n")
+			escreva_lento("\nPassos lentos.\nOlhares desesperados.\nE então… Wendy e Danny desaparecem no corredor, rumo à saída.\n\nVocê fica sozinho no Overlook.\nSozinho, mas não solitário.\nO hotel respira junto com você, preenchendo cada veia, cada pensamento.\n\nE pela primeira vez… você se sente completo.\n\n")
+			u.aguarde(100)
+			final_guardiao()
+		}
+		senao{
+			escreva_lento("Jack ergue os braços como um profeta diante de um templo. Seus olhos brilham\ncom fúria e êxtase.\n— “Vocês não entendem?! Eu não sou mais só Jack Torrance… Eu sou o guardião do\nOverlook! E vocês…”\n\nEle aponta para Wendy e Danny, que recuam contra a parede.\n— “…vocês devem se curvar. Se aceitarem, o hotel lhes dará um lugar. Se\nresistirem… o hotel os consumirá.”\nO vento do lado de fora parece responder, sacudindo as janelas com violência. As\nlâmpadas estouram, lançando o quarto em sombras vacilantes.\n\nDanny agarra a mão da mãe, mas não chora. Ele apenas olha para você com\ntristeza.\nWendy, tremendo, tenta encontrar forças:\n— “Jack… você não precisa disso… nós ainda podemos fugir daqui, juntos…”\n\nMas as paredes do hotel ecoam com risadas graves, zombando dela.\nE no fundo do seu coração, você sabe: não há mais volta.\n\nO Overlook pulsa através de você, aguardando sua decisão final.\n")
+			escreva_lento("\n[1] Obriga Wendy e Danny a jurarem fidelidade ao hotel.\n[2] Avança contra eles, disposto a provar sua lealdade ao Overlook com sangue.\n")
+			leia_resposta(2)
+
+			se(resposta == 1){
+				escreva_lento("Jack se aproxima de Wendy e Danny, os olhos brilhando com a força do Overlook.\n— “Curvem-se diante do hotel… e aceitem que ele vive através de mim!” — sua voz\necoa pelo quarto, como um trovão.\n\nWendy e Danny se entreolham, hesitando.\nO vento uivante parece pressioná-los, as sombras se alongam pelas paredes, e o\nhotel parece respirar pesado, observando cada movimento.\n\nDanny finalmente murmura, quase em silêncio:\n— “Tudo bem… pai…”\n\nWendy, relutante, segue o filho.\nJack sente a confirmação: o hotel está agora completamente ligado a ele.\nAs vozes sussurram doces promessas de poder, e uma sensação de triunfo\npercorre cada fibra do seu corpo.\n\nO Overlook pulsa em uníssono com você.\nNão há dúvida: você venceu a resistência, dominou sua família e se tornou o\nguardião absoluto do hotel.\n\n")
+				reiniciar()
+			}
+			senao{
+				
+			}
+		}
+		
+	}
+	funcao final_guardiao(){
+		escreva("\n\n")
+		escreva("  ▄████████  ▄█  ███▄▄▄▄      ▄████████  ▄█               ▄██████▄  ███    █▄     ▄████████    ▄████████ ████████▄   ▄█     ▄████████  ▄██████▄  \n")
+		escreva("  ███    ███ ███  ███▀▀▀██▄   ███    ███ ███              ███    ███ ███    ███   ███    ███   ███    ███ ███   ▀███ ███    ███    ███ ███    ███ \n")
+		escreva("  ███    █▀  ███▌ ███   ███   ███    ███ ███              ███    █▀  ███    ███   ███    ███   ███    ███ ███    ███ ███▌   ███    ███ ███    ███ \n")
+		escreva(" ▄███▄▄▄     ███▌ ███   ███   ███    ███ ███             ▄███        ███    ███   ███    ███  ▄███▄▄▄▄██▀ ███    ███ ███▌   ███    ███ ███    ███ \n")
+		escreva("▀▀███▀▀▀     ███▌ ███   ███ ▀███████████ ███            ▀▀███ ████▄  ███    ███ ▀███████████ ▀▀███▀▀▀▀▀   ███    ███ ███▌ ▀███████████ ███    ███ \n")
+		escreva("  ███        ███  ███   ███   ███    ███ ███              ███    ███ ███    ███   ███    ███ ▀███████████ ███    ███ ███    ███    ███ ███    ███ \n")
+		escreva("  ███        ███  ███   ███   ███    ███ ███▌    ▄        ███    ███ ███    ███   ███    ███   ███    ███ ███   ▄███ ███    ███    ███ ███    ███ \n")
+		escreva("  ███        █▀    ▀█   █▀    ███    █▀  █████▄▄██        ████████▀  ████████▀    ███    █▀    ███    ███ ████████▀  █▀     ███    █▀   ▀██████▀  \n")
+		escreva("                                         ▀                                                     ███    ███                                          \n")
+
+		
+		escreva_lento("\nJack abraça totalmente a presença do Overlook e se torna seu guardião eterno.\nWendy e Danny somem na nevasca, talvez para nunca mais serem vistos.\nO hotel, agora, tem um novo mestre.\n")
+		reiniciar()
+	}
+	funcao final_sombrio(){
+		escreva("\n\n")
+		escreva("   ▄████████  ▄█  ███▄▄▄▄      ▄████████  ▄█               ▄████████  ▄██████▄    ▄▄▄▄███▄▄▄▄   ▀█████████▄     ▄████████  ▄█   ▄██████▄  \n")
+		escreva("  ███    ███ ███  ███▀▀▀██▄   ███    ███ ███              ███    ███ ███    ███ ▄██▀▀▀███▀▀▀██▄   ███    ███   ███    ███ ███  ███    ███ \n")
+		escreva("  ███    █▀  ███▌ ███   ███   ███    ███ ███              ███    █▀  ███    ███ ███   ███   ███   ███    ███   ███    ███ ███▌ ███    ███ \n")
+		escreva(" ▄███▄▄▄     ███▌ ███   ███   ███    ███ ███              ███        ███    ███ ███   ███   ███  ▄███▄▄▄██▀   ▄███▄▄▄▄██▀ ███▌ ███    ███ \n")
+		escreva("▀▀███▀▀▀     ███▌ ███   ███ ▀███████████ ███            ▀███████████ ███    ███ ███   ███   ███ ▀▀███▀▀▀██▄  ▀▀███▀▀▀▀▀   ███▌ ███    ███ \n")
+		escreva("  ███        ███  ███   ███   ███    ███ ███                     ███ ███    ███ ███   ███   ███   ███    ██▄ ▀███████████ ███  ███    ███ \n")
+		escreva("  ███        ███  ███   ███   ███    ███ ███▌    ▄         ▄█    ███ ███    ███ ███   ███   ███   ███    ███   ███    ███ ███  ███    ███ \n")
+		escreva("  ███        █▀    ▀█   █▀    ███    █▀  █████▄▄██       ▄████████▀   ▀██████▀   ▀█   ███   █▀  ▄█████████▀    ███    ███ █▀    ▀██████▀  \n")
+		escreva("                                         ▀                                                                     ███    ███                  \n")
+		escreva_lento("\nJack se torna parte eterna do Overlook, um fantasma aprisionado em suas paredes, condenado a\nrepetir a loucura para sempre.\n")
+		reiniciar()
+	}
+	funcao reiniciar(){
+		escreva("\n\nParabéns você terminou o jogo deseja jogar novamente?\n[1] Sim\n[2] Não\n")
+		leia_resposta(2)
+		se( resposta == 1){
+			limpa()
+			inicio()
+		}
+		senao{
+			
+		}
+	}
+
+	funcao batalha(inteiro vida, inteiro defesa, inteiro forca, cadeia nome_inimigo,inteiro vida_inimigo, inteiro defesa_inimigo, inteiro forca_inimigo){
+		inteiro dano = 0, critico
+		inteiro medo = 0, dano_inimigo
+		inteiro acao_inimigo
+		inteiro mensagem = 0, mensagem2 = 0
+
+		enquanto(vida_inimigo > 0 e vida > 0){
+
+	
+		dano = 0
+		dano_inimigo = 0
+		
+		se (turno == 3){
+			 defesa_inimigo += medo
+			 turno = 0
+		}
+		
+		// --- CONTADOR EFEITO MEDO ---
+		
+		se (turno >= 1){
+			turno++
+		}
+		
+		//  STATUS JOGADOR
+		escreva_lento("\nJack Torrance:\nHP:")
+		escreva(vida)
+		escreva_lento("\nDefesa:")
+		escreva(defesa)
+		
+		//  STATUS INIMIGO
+		escreva_lento("\n\n")
+		escreva(nome_inimigo)
+		escreva_lento(":\nHP:")
+		escreva(vida_inimigo)
+		escreva_lento("\nDefesa:")
+		escreva(defesa_inimigo,"\n")
+
+		//  OPÇOES
+		escreva("\n1. Atacar\n")
+		escreva("2. Ameaçar\n")
+		escreva("3. Defender\n")
+
+		leia_resposta(3)
+		
+		 
+		
+		// --- AÇÃO INIMIGO ---
+		
+		acao_inimigo = sorteia(1,100)
+			
+		// --- ATAQUE INIMIGO ---
+		se(acao_inimigo > 25){	
+			se(sorteia(1,100) <= 5){
+				mensagem2 = 0
+			}senao{
+				se(sorteia(1,16) == 1){
+					 dano_inimigo = (forca_inimigo*2) - defesa
+					 mensagem2 = 2
+				
+				}senao{
+					dano_inimigo = forca_inimigo - defesa
+					mensagem2 = 1
+				}
+			}
+		}
+
+			// --- AÇOES JOGADOR --- //
+			
+			escolha(resposta){
+			// --- ATACAR ---- //
+				caso 1: 
+					se(sorteia(1,100) <= 10){
+					mensagem = 0
+					}
+					senao{
+						se(sorteia(1,16) == 1 ) {
+							dano = (forca*2) - defesa_inimigo
+							mensagem = 2
+						}
+						senao{
+							dano = forca - defesa_inimigo
+							mensagem = 1
+						}
+					}
+				pare
+
+			// --- AMEAÇAR --- //
+				caso 2:
+					se(turno == 1 ou turno == 2){
+						escreva_lento("O inimigo ja esta com medo voce nao pode ameaçar ele novamente por enquanto")
+						batalha(vida,defesa,forca,nome_inimigo, vida_inimigo, defesa_inimigo, forca_inimigo)
+					}senao{
+						se(sorteia(1,100) <= 10){
+								mensagem = 0
+					}
+					senao{
+						medo = sorteia(3,5)
+						defesa_inimigo -= medo
+						turno = 1
+						mensagem = 3
+					}
+				}
+			
+				pare
+
+			// --- DEFENDER --- //
+				caso 3:
+					se(sorteia(1,100) <= 15){
+						mensagem = 0
+					}
+					senao{
+						dano_inimigo /= 2
+						mensagem = 4
+					}
+				pare	
+				}
+
+			// --- DEFESA INIMIGO --- //
+			
+			se(acao_inimigo <= 25){
+				se(sorteia(1,100) <= 20){
+					mensagem2 = 0
+					}
+					senao{
+						dano /= 2
+						mensagem2 = 4
+					}
+			}
+			
+			// --- CALCULA OS VALORES --- //
+			vida -= dano_inimigo
+			vida_inimigo -= dano
+
+			// --- MENSAGENS JACK ---
+				se(mensagem == 0){
+					escreva_lento("\nVoce errou o movimento")
+				}
+				senao se(mensagem == 1){
+					escreva_lento("Você atacou")
+						se(mensagem2 == 4){
+							escreva_lento(", mas o inimigo defendeu, recebendo ")
+							escreva(dano)
+							escreva_lento(" de dano")
+					}
+					senao{
+					escreva_lento(" e causou ")
+					escreva(dano)
+					escreva_lento(" de dano")
+				}
+			}
+			senao se(mensagem == 2){
+					escreva_lento("Você acertou um ataque crítico")
+						se(mensagem2 == 4){
+							escreva_lento(", mas ")
+							escreva(nome_inimigo)
+							escreva_lento(" defendeu, recebendo ")
+							escreva(dano)
+							escreva_lento(" de dano")
+					}
+					senao{
+					escreva_lento(" e causou ")
+					escreva(dano)
+					escreva_lento(" de dano")
+				}
+			}
+			senao se(mensagem == 3){
+				escreva_lento("Você deixou o inimigo com medo, ")
+				escreva(nome_inimigo)
+				escreva_lento(" perdeu ")
+				escreva(medo)
+				escreva_lento(" pontos de defesa")
+				}
+			senao{
+				se(mensagem2 == 1 ou mensagem2 == 2){
+					escreva_lento("Você defendeu o ataque de ")
+					escreva(nome_inimigo)
+					escreva_lento(" e recebeu ")
+					escreva(dano_inimigo)
+					escreva_lento(" de dano")
+				}
+				senao{
+					escreva_lento("Você tentou defender, mas não foi atacado")
+				}
+			}
+			// --- MENSAGENS INIMIGO ---
+			se(mensagem2 == 0){
+				escreva("\n",nome_inimigo)
+				escreva_lento(" errou o movimento")
+			}
+			senao se(mensagem2 == 1 e mensagem != 4){
+				escreva("\n",nome_inimigo)
+				escreva_lento(" atacou e causou ")
+				escreva(dano_inimigo)
+				escreva_lento(" de dano")
+			}
+			senao se(mensagem2 == 2 e mensagem != 4){
+				escreva("\n",nome_inimigo)
+				escreva_lento(" acertou um ataque crítico causando ")
+				escreva(dano_inimigo)
+				escreva_lento(" de dano")
+			}
+		}
+		se(vida<=0 e vida_inimigo > vida){
+			se(nome_inimigo == "Wendy"){
+				limpa()
+				escreva_lento("O golpe certeiro de Wendy o atinge.\nJack cambaleia, o machado cai no chão com um estrondo.\n— “Jack, por favor… não nos obrigue a fazer isso!” – ela grita, com lágrimas nos olhos.\n\nEle sente o sangue escorrer e, junto dele, a força das vozes do hotel.\nMas o Overlook não aceita perder tão fácil.\nUm rugido invisível preenche os corredores:\n— “Fracassado! Você é nosso, Jack! PARA SEMPRE!”\n")
+				escreva_lento("\nVocê cai de joelhos, e a batalha muda.\nAgora não é mais contra Wendy, mas contra o próprio hotel dentro da sua mente.\nVisões de festas antigas, vultos de hóspedes mortos e o zelador Grady cercam você, rindo.\nEles tentam arrastá-lo para a escuridão eterna.\n\n[1] Ceder\n[2] Resistir\n")
+				leia_resposta(2)
+				se(resposta == 1){
+					limpa()
+					escreva_lento("\nJack deixa as vozes tomarem conta.\nEle se levanta, mas já não é mais ele.\nOs olhos estão vazios, a postura é rígida — agora é apenas mais um fantasma do Overlook, preso às\nparedes, andando pelos corredores como tantos outros.")
+					final_sombrio()
+					reiniciar()
+				}
+				senao{
+					limpa()
+					escreva("Mesmo ferido, ele luta contra as vozes até o último segundo.\nEle grita, recusa cada convite das sombras, até que sua força acaba.\nWendy e Danny conseguem fugir, enquanto Jack cambaleia pelo labirinto de neve.\n\nO frio o envolve, e ele cai… congelado.\nMas nos olhos dele há algo diferente: não há mais escuridão, apenas liberdade.\n")
+					reiniciar()
+					}
+				}
+				senao{
+					limpa()
+					escreva_lento("O calor humano desaparece, substituído por um frio cortante.\nSeus olhos perdem o brilho, ficando ocos, cheios da sombra do Overlook.\n\nA voz em sua mente não sussurra mais — ela comanda.\n— “Agora você é nosso. Acabe com eles.”\n\nWendy recua, apavorada.\n— “Jack… por favor, não faça isso!”\n\nMas já não há “Jack”. Apenas o hotel usando sua pele.\nEle pega o machado encostado na parede e avança, cada passo ecoando como um trovão.\n\nDanny grita, puxando Wendy para a escada. Eles tentam fugir, mas o hotel conspira: portas se\ntrancam sozinhas, corredores mudam de lugar, janelas se fecham com força.\n\nO homem que um dia foi Jack os caça pelo Overlook, rindo como as vozes do salão vazio.\n\nNa neve, não há saída.\nWendy e Danny desaparecem no labirinto do hotel, suas vozes abafadas pela ventania e pelos gritos\ndo monstro que os persegue.\nO Overlook permanece em silêncio… satisfeito.\nE Jack… Jack está perdido para sempre.\n")
+					reiniciar()
+				}
+			}
+			senao{
+			se(nome_inimigo == "Wendy"){
+				limpa()
+				escreva_lento("Você derruba Wendy.\nO barulho da faca caindo no chão ecoa pelo salão, seguido apenas pelo som da respiração pesada de\nDanny, que assiste horrorizado.\n\nAs vozes do Overlook rugem em sua mente, triunfantes:\n— “Muito bem, Jack… você provou ser nosso. Agora, o garoto.”\n")
+				escreva_lento("\nDanny foge pelos corredores, mas você já não sente cansaço. O hotel guia seus passos, mostrando\ncada curva do labirinto, cada pegada na neve.\nO “iluminado” do garoto brilha, mas você está acima da humanidade agora: é parte do Overlook\n\nNo fim, não importa se Danny corre, grita ou resiste. O hotel sempre vence.\nE você… é o hotel.\n")
+				final_sombrio()
+				}
+				senao{
+					limpa()	
+					escreva_lento("Jack cerra os dentes, grita contra o vazio e, força a sombra a\nrecuar. É como lutar contra um oceano de escuridão que tenta afogá-lo. Cada segundo dói. Cada\nrespiração é uma guerra.\n\nO hotel inteiro se agita — portas batem sozinhas, o chão vibra, janelas se estilhaçam. Os espíritos\ngritam em uníssono:\n— “VOCÊ É NOSSO, JACK!”\n\nMas ele não solta. Ele encara Wendy e sussurra com lágrimas nos olhos:\n— “Leve o Danny… corram. Eu vou segurar eles aqui.”\nWendy tenta protestar, mas Jack a empurra suavemente, com o olhar de um homem que já tomou sua\ndecisão.\n\nO hotel o envolve em escuridão, consumindo-o como uma chama que se apaga — mas, no instante\nfinal, há paz em seu rosto.\n\nWendy e Danny escapam pela neve gelada, correndo para longe, enquanto atrás deles o Overlook\nrange como um animal ferido, até silenciar.\n\nJack não saiu vivo… mas salvou sua família.\n")
+					reiniciar()
+				}
+		}
+	}
+
+}
