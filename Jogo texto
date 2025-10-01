@@ -445,8 +445,6 @@ programa
 				capitulo7(5)
 				
 			}
-
-			
 		}
 	funcao capitulo7(inteiro opcao){
 		se(opcao == 1){
