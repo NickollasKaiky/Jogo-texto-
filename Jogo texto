@@ -182,6 +182,19 @@ programa
 				
 				}
 				senao{
+					/*
+					 * 
+					 * 
+					 * 
+					 * 
+					 * 
+					 * 
+					 * 
+					 * 
+					 * 
+					 * 
+					 * 
+					 */
 				
 				
 				}
@@ -198,12 +211,43 @@ programa
 				capitulo5(5)
 			}
 			senao{
+				/*
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 */
 					
 			}
 		}
+			//----- SE BEBER ------
 			senao se(opcao == 3){
 				limpa()
-				capitulo5(2)
+				escreva_lento("Você pega o copo e o gira entre os dedos.\nO aroma forte do uísque sobe até o nariz, e por um instante, você sente uma calma familiar.\nQuando o líquido queima sua garganta, a sensação de pertencimento aumenta.\n\nLloyd sorri, servindo mais.\n— “O hotel sempre cuida dos seus, senhor Torrance. Aqui, você nunca estará sozinho.”\n\nAtrás de você, os convidados continuam dançando, mas seus rostos… parecem mortos.\nOlhos sem vida, bocas congeladas em sorrisos eternos.\nO sussurro do Overlook ecoa de novo:\n— “Ela e o garoto querem te tirar daqui, Jack. Mas este é o seu lugar. Você precisa defendê-lo.”")
+				escreva_lento("\n[1] Aceita totalmente a voz do hotel, decidido a proteger o Overlook contra Wendy e Danny.\n[2] Joga o copo no chão, tentando resistir à influência, mesmo que seja tarde.\n")
+				leia_resposta(2)
+				se(resposta == 1){
+				limpa()
+				capitulo5(3)	
+			}
+			senao{
+				/*
+				 * 
+				 * 
+				 * 
+				 * 
+				 * TERMINAR !!!!!!!!!!
+				 * 
+				 * 
+				 * 
+				 * 
+				 */
+				
+			}
 			}
 			senao se(opcao == 4){
 				escreva_lento("Você respira fundo, a raiva queimando dentro do peito, mas se contém.\nOlha para Wendy com um meio sorriso forçado:\n— “Eu só preciso de mais tempo, Wendy. Só isso. O livro vai sair, confie em mim.”\n\nEla suspira, aliviada, e toca seu ombro com carinho:\n— “Eu sei, Jack. Só não se pressione tanto…”\nVocê finge tranquilidade, mas por dentro a frustração se mistura às vozes do hotel, que agora soam\nmais irritadas:\n— “Fraco… você deveria mostrar quem manda…”\n\nNaquela noite, sozinho no salão vazio, você escuta passos atrás de si.\nUma garrafa aparece sobre o balcão. O bar está repleto de bebidas, embora Wendy tenha certeza de\nque está vazio.\n\nO garçom sorri educadamente:\n— “Boa noite, senhor Torrance. A primeira é por conta da casa.”\n")
@@ -229,30 +273,6 @@ programa
 				 */
 				}
 			}
-		//----- SE BEBER ------
-		senao{
-			escreva_lento("Você pega o copo e o gira entre os dedos.\nO aroma forte do uísque sobe até o nariz, e por um instante, você sente uma calma familiar.\nQuando o líquido queima sua garganta, a sensação de pertencimento aumenta.\n\nLloyd sorri, servindo mais.\n— “O hotel sempre cuida dos seus, senhor Torrance. Aqui, você nunca estará sozinho.”\n\nAtrás de você, os convidados continuam dançando, mas seus rostos… parecem mortos.\nOlhos sem vida, bocas congeladas em sorrisos eternos.\nO sussurro do Overlook ecoa de novo:\n— “Ela e o garoto querem te tirar daqui, Jack. Mas este é o seu lugar. Você precisa defendê-lo.”")
-			escreva_lento("\n[1] Aceita totalmente a voz do hotel, decidido a proteger o Overlook contra Wendy e Danny.\n[2] Joga o copo no chão, tentando resistir à influência, mesmo que seja tarde.\n")
-			leia_resposta(2)
-			se(resposta == 1){
-			limpa()
-			capitulo5(3)	
-			}
-			senao{
-				/*
-				 * 
-				 * 
-				 * 
-				 * 
-				 * TERMINAR !!!!!!!!!!
-				 * 
-				 * 
-				 * 
-				 * 
-				 */
-				
-			}
-		}
 	}
 	funcao capitulo5(inteiro opcao){
 		se(opcao == 1){
@@ -262,7 +282,7 @@ programa
 		}
 		senao se(opcao == 2){
 			escreva_lento("Você encara Wendy, mas força um sorriso falso.\n— “Só não dormi bem. Deve ser o ar daqui.”\n\nEla não parece convencida, mas decide não insistir.\n\nPor dentro, você sente a pressão aumentar. As vozes do hotel riem, zombando da sua tentativa de\nresistir:\n— “Você pode fingir com ela, Jack… mas nunca de nós. Estamos dentro da sua mente.”\n\nA cada noite, os corredores chamam mais forte.\nE durante o dia, diante da máquina de escrever, você percebe algo estranho:\na página em branco começa a se preencher sozinha, repetindo apenas uma frase:\n\n“Todo trabalho e nenhuma diversão fazem de Jack um garoto chato.”\nPáginas e páginas.\nVocê não se lembra de escrever nada disso.\n")
-			escreva_lento("\n[1] Continua escrevendo compulsivamente, deixando a frase se repetir sem parar.\n[2] Rasga as folhas, tentando provar para si mesmo que ainda está no controle.")
+			escreva_lento("\n[1] Continua escrevendo compulsivamente, deixando a frase se repetir sem parar.\n[2] Rasga as folhas, tentando provar para si mesmo que ainda está no controle.\n")
 			leia_resposta(2)
 			se(resposta == 1){
 				/*
@@ -607,7 +627,9 @@ programa
 				reiniciar()
 			}
 			senao{
-				
+				limpa()
+				escreva_lento("Batalha iniciada Jack X Wendy")
+				batalha(100,8,17,"Wendy",80, 8, 18)
 			}
 		}
 		
