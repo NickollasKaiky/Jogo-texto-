@@ -182,19 +182,8 @@ programa
 				
 				}
 				senao{
-					/*
-					 * 
-					 * 
-					 * 
-					 * 
-					 * 
-					 
-					 
-					 * 
-					 * 
-					 * 
-					 * 
-					 */
+			limpa()
+			capitulo5(2)
 				
 				
 				}
@@ -246,7 +235,7 @@ programa
 				 * 
 				 * 
 				 * 
-				 *    TERMINAR !!!!!!!!!
+				 *    TERMINAR !!!!!!!
 				 * 
 				 * 
 				 * 
